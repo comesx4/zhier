@@ -1,0 +1,87 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+<section id="content">
+<div class="container">
+	<div class="row">	
+	    <div class="col-lg-8">
+			<article id="post-108" class="post-108 post type-post status-publish format-standard hentry category-blog tag-blog tag-general tag-post">
+		        <div class="post-image">
+			        <div class="post-heading">
+				        <h3><a href="http://bootstraptaste.com/wp/moderna/cu-eos-sale-sanctus-eligendi/">{{ post.tltle }}</a></h3>
+			        </div>
+				    <img width="800" height="450" src="http://bootstraptaste.com/wp/moderna/wp-content/uploads/2014/04/img3.jpg" class="img-responsive wp-post-image" alt="img3" />				
+                </div>
+{% autoescape off %}
+{{ post.content }}
+{% endautoescape %}			    
+	        </article>
+            <div id="comments" class="">
+                <h4 class="title">{{ post.access_count }} Comments</h4>
+                <div id="respond" class="">
+                    <h4>Leave a reply</h4>
+                    <ul class="comment_list">
+	                    <li id="comment-1" class="comment">
+		                    <div class="single_comment">
+			                    <div class="avatar">
+				                    <img alt="" src="http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=80" class="avatar avatar-80 photo avatar-default" height="80" width="80">			</div>
+                                <div class="comment_meta">
+                                    <span class="author"><a href="http://wordpress.org/" rel="external nofollow" class="url">Mr WordPress</a></span>
+                                    <span class="date">April 13, 2014 - <a class="comment-reply-link" href="/wp/moderna/hello-world/?replytocom=1#respond" onclick="return addComment.moveForm(&quot;comment-1&quot;, &quot;1&quot;, &quot;respond&quot;, &quot;1&quot;)">Reply</a></span>							
+                                </div><!-- END comment_meta-->
+			                    <div class="comment_wrap">
+				                    <p>Hi, this is a comment.<br>To delete a comment, just log in and view the post's comments. There you will have the option to edit or delete them.</p>
+			                    </div>
+		                    </div>
+                        </li><!-- #comment-## -->
+                    </ul>
+                    <div class="cancel-comment-reply">
+                        <a rel="nofollow" id="cancel-comment-reply-link" href="/wp/moderna/cu-eos-sale-sanctus-eligendi/#respond" style="display:none;">Click here to cancel reply.</a>
+                    </div>
+
+                    <form id="contactform" action="http://bootstraptaste.com/wp/moderna/wp-comments-post.php" method="post" role="form">
+
+                        <div class="form-group">
+                            <label for="author">Name</label>
+	                        <div class="controls">
+                                <input type="text" class="form-control" name="author" id="username" placeholder="">
+	                        </div>
+                        </div> 
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="controls">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="">
+	                        </div>
+                        </div>  
+  
+                        <div class="form-group">
+                            <label for="url">Website</label>
+	                        <div class="controls">
+                                <input type="text" class="form-control" name="url" id="url" placeholder="">
+	                        </div>
+                        </div>  
+
+                        <div class="form-group">
+                            <label for="comment">Your comment</label>
+	                        <div class="controls">
+	                            <textarea id="comment" class="form-control" name="comment" rows="4" cols="3"></textarea>
+	                        </div>
+                        </div>  
+
+                        <div class="form-group">
+                            <div class="controls">
+	                            <button id="btn-send" class="btn btn-theme margintop10 pull-left" type="submit">Send</button>
+                            </div>
+                        </div>  	
+
+                        <input type='hidden' name='comment_post_ID' value='108' id='comment_post_ID' />
+                        <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+                    </form>
+                </div>
+            </div>
+        </div>	
+	</div>
+</div>
+</section>
+{% endblock %}
