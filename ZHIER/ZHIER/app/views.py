@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.http import Http404
 from models import Post, Tag, Category
 from datetime import datetime
-from django.db.models.aggregates import Sum
+from django.db.models.aggregates import Count
 
 def home(request):
     assert isinstance(request, HttpRequest)
@@ -49,13 +49,26 @@ def posts(request):
 
     #Get Current Page Index
     p = request.GET.get('p', '1')
+    cate = request.GET.get('cate', '')
     try:
         pageIndex = int(p)
     except ValueError:
         pageIndex = 1
+
+    try:
+        cateIndex = int(cate)
+    except ValueError:
+        cateIndex = ''
+
+    if '' == cateIndex:
+        postsAll = Post.objects.order_by("-is_top", "-publish_time")
+    else:
+        postsAll = Post.objects.filter(category = cateIndex).order_by("-is_top", "-publish_time")
+
+    posts = postsAll[5 * (pageIndex - 1) : 5 + 5 * (pageIndex - 1)]
+
+    pageCount = postsAll.count() /5 + 1
     
-    posts = Post.objects.order_by("-is_top", "-publish_time")[5 * (pageIndex - 1) : 5 + 5 * (pageIndex - 1)]
-    pageCount = Post.objects.all().count() /5 + 1
     pageList = range(1, pageCount + 1)
     if pageIndex > pageCount or pageIndex <= 0:
         raise Http404
@@ -64,11 +77,11 @@ def posts(request):
     tags = Tag.objects.all()
 
     # Get Categories
-    catCount = Post.objects.values("category").annotate(Sum('category'))
+    catCount = Post.objects.values("category").annotate(Count('category'))
     catName = Category.objects.only("title")
     cats = {}
-    for index in range(len(catName)):
-        cats[catName[index].title] = catCount[index]['category__sum']
+    for cat in catName:
+        cats[cat.title] = [ 0 if catCount.filter(category=cat.id) == 0 else catCount.filter(category=cat.id)[0]['category__count'], cat.id]
 
     return render(
         request,
@@ -80,7 +93,8 @@ def posts(request):
             'pages' : pageList,
             'pageIndex' : pageIndex,
             'tags' : tags,
-            'cats' : cats
+            'cats' : cats,
+            'crtCate' : cateIndex
         })
     )
 
