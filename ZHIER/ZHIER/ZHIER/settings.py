@@ -136,7 +136,7 @@ INSTALLED_APPS = (
 
 DUOSHUO_SECRET = 'your key here'
 
-DUOSHUO_SHORT_NAME = 'zhier'
+DUOSHUO_SHORT_NAME = 'your name here'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
