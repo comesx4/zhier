@@ -1,4 +1,4 @@
-# Django settings for ZHIER project.
+﻿# Django settings for ZHIER project.
 from os import path
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
@@ -129,8 +129,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'app',
-    
+    'duoshuo',
 )
+
+# DuoshuoConfigs
+
+DUOSHUO_SECRET = 'your key here'
+
+DUOSHUO_SHORT_NAME = 'zhier'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
