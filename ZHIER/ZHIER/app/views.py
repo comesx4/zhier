@@ -50,11 +50,14 @@ def posts(request):
     #Get Current Page Index
     p = request.GET.get('p', '1')
     cate = request.GET.get('cate', '')
+
+    # Get the Current Page Index
     try:
         pageIndex = int(p)
     except ValueError:
         pageIndex = 1
 
+    # Get the Current CateIndex
     try:
         cateIndex = int(cate)
     except ValueError:
@@ -88,6 +91,7 @@ def posts(request):
         'app/posts.html',
         RequestContext(request,
         {
+            'title' : 'All Posts',
             'posts' : posts,
             'PageCount' : pageCount,
             'pages' : pageList,

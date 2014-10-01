@@ -1,39 +1,55 @@
 ﻿{% extends "app/layout.html" %} 
 
+{% block breadcrumb %}
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                        <li class="active">Posts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</section>
+
+{% endblock %}
+
 {% block content %}
 {% load staticfiles %}
 <section id="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
 {% for post in posts %}
-				<article>
-					<div class="post-image">
-						<div class="post-heading">
+                <article>
+                    <div class="post-image">
+                        <div class="post-heading">
                             <h3>
 {% if post.is_top %}
                                 <span class="btn btn-small btn-info">
-                                    <i class="fa fa-flash"></i>置顶</span>							
+                                    <i class="fa fa-flash"></i>置顶</span>                            
 {% endif %}
                                 <a href="/post/{{ post.link }}.html">{{ post.title }}</a>
                             </h3>
-						</div>
-						<!--<img src="{% static 'app/img/dummies/blog/img1.jpg' %}" alt="" />-->
-					</div>
-					<p>{{ post.snippet }}</p>
-					<div class="bottom-article">
-						<ul class="meta-post">
-							<li><i class="fa fa-calendar"></i><a href="#">{{ post.publish_time }}</a></li>
-							<li><i class="fa fa-user"></i><a href="#">{{ post.author }}</a></li>
-							<li><i class="fa fa-folder-open"></i><a href="/posts?cate={{ post.category.id }}">{{ post.category }}</a></li>
-							<li><i class="fa fa-comments"></i><a href="#">{{ post.access_count }} Comments</a></li>
-						</ul>
-						<a href="/post/{{ post.link }}.html" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
-					</div>
-				</article>
+                        </div>
+                        <!--<img src="{% static 'app/img/dummies/blog/img1.jpg' %}" alt="" />-->
+                    </div>
+                    <p>{{ post.snippet }}</p>
+                    <div class="bottom-article">
+                        <ul class="meta-post">
+                            <li><i class="fa fa-calendar"></i><a href="#">{{ post.publish_time }}</a></li>
+                            <li><i class="fa fa-user"></i><a href="#">{{ post.author }}</a></li>
+                            <li><i class="fa fa-folder-open"></i><a href="/posts?cate={{ post.category.id }}">{{ post.category }}</a></li>
+                            <li><i class="fa fa-comments"></i><a href="#">{{ post.access_count }} Comments</a></li>
+                        </ul>
+                        <a href="/post/{{ post.link }}.html" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
+                    </div>
+                </article>
 {% endfor %}
-				<div id="pagination">
-					<span class="all">Page {{ pageIndex }} of {{ PageCount }}</span>
+                <div id="pagination">
+                    <span class="all">Page {{ pageIndex }} of {{ PageCount }}</span>
 {% for page in pages %}
 {% ifequal page pageIndex %}
                     <span class="current">{{ page }}</span>
@@ -41,62 +57,62 @@
                     <a href="/posts?p={{ page }}{% if crtCate %}&cate={{ crtCate }} {% endif %}" class="inactive">{{ page }}</a>
 {% endifequal  %}
 {% endfor %}
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<aside class="right-sidebar">
-				<div class="widget">
-					<form class="form-search">
-						<input class="form-control" type="text" placeholder="Search..">
-					</form>
-				</div>
-				<div class="widget">
-					<h5 class="widgetheading">Categories</h5>
-					<ul class="cat">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside class="right-sidebar">
+                <div class="widget">
+                    <form class="form-search">
+                        <input class="form-control" type="text" placeholder="Search..">
+                    </form>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">Categories</h5>
+                    <ul class="cat">
                         <li><i class="icon-angle-right"></i><a href="/posts">全部</a></li>
 {% for cat, val in cats.items%}
-						<li><i class="icon-angle-right"></i><a href="/posts?cate={{ val.1 }}">{{ cat }}</a><span> ({{ val.0 }})</span></li>
+                        <li><i class="icon-angle-right"></i><a href="/posts?cate={{ val.1 }}">{{ cat }}</a><span> ({{ val.0 }})</span></li>
 {% endfor %}
-					</ul>
-				</div>
-				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
-					<ul class="recent">
-						<li>
-						<img src="{% static 'app/img/dummies/blog/65x65/thumb1.jpg' %}" class="pull-left" alt="" />
-						<h6><a href="#">Lorem ipsum dolor sit</a></h6>
-						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
-						</p>
-						</li>
-						<li>
-						<a href="#"><img src="{% static 'app/img/dummies/blog/65x65/thumb2.jpg' %}" class="pull-left" alt="" /></a>
-						<h6><a href="#">Maiorum ponderum eum</a></h6>
-						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
-						</p>
-						</li>
-						<li>
-						<a href="#"><img src="{% static 'app/img/dummies/blog/65x65/thumb3.jpg' %}" class="pull-left" alt="" /></a>
-						<h6><a href="#">Et mei iusto dolorum</a></h6>
-						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
-						</p>
-						</li>
-					</ul>
-				</div>
-				<div class="widget">
-					<h5 class="widgetheading">Popular tags</h5>
-					<ul class="tags">
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">Latest posts</h5>
+                    <ul class="recent">
+                        <li>
+                        <img src="{% static 'app/img/dummies/blog/65x65/thumb1.jpg' %}" class="pull-left" alt="" />
+                        <h6><a href="#">Lorem ipsum dolor sit</a></h6>
+                        <p>
+                             Mazim alienum appellantur eu cu ullum officiis pro pri
+                        </p>
+                        </li>
+                        <li>
+                        <a href="#"><img src="{% static 'app/img/dummies/blog/65x65/thumb2.jpg' %}" class="pull-left" alt="" /></a>
+                        <h6><a href="#">Maiorum ponderum eum</a></h6>
+                        <p>
+                             Mazim alienum appellantur eu cu ullum officiis pro pri
+                        </p>
+                        </li>
+                        <li>
+                        <a href="#"><img src="{% static 'app/img/dummies/blog/65x65/thumb3.jpg' %}" class="pull-left" alt="" /></a>
+                        <h6><a href="#">Et mei iusto dolorum</a></h6>
+                        <p>
+                             Mazim alienum appellantur eu cu ullum officiis pro pri
+                        </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h5 class="widgetheading">Popular tags</h5>
+                    <ul class="tags">
 {% for tag in tags %}
-						<li><a href="#">{{ tag }}</a></li>
+                        <li><a href="#">{{ tag }}</a></li>
 {% endfor %}
-					</ul>
-				</div>
-				</aside>
-			</div>
-		</div>
-	</div>
+                    </ul>
+                </div>
+                </aside>
+            </div>
+        </div>
+    </div>
 </section>
 
 {% endblock %}

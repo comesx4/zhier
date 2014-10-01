@@ -1,26 +1,54 @@
 {% extends "app/layout.html" %}
 
+{% block breadcrumb %}
+    <section id="inner-headline">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                        <li><a href="/posts">Posts</a><i class="icon-angle-right"></i></li>
+                        <li class="active">{{ post.title }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</section>
+
+{% endblock %}
+
 {% block content %}
 {% load staticfiles %}
 <section id="content">
 <div class="container">
-	<div class="row">	
+    <div>
+        <h2>{{ post.title }}</h2>
+        <div class="bottom-article">
+            <ul class="meta-post">
+                <li><i class="fa fa-calendar"></i><a href="#">{{ post.publish_time }}</a></li>
+                <li><i class="fa fa-user"></i><a href="#">{{ post.author }}</a></li>
+                <li><i class="fa fa-folder-open"></i><a href="/posts?cate={{ post.category.id }}">{{ post.category }}</a></li>
+                <li><i class="fa fa-comments"></i><a href="#">{{ post.access_count }} Comments</a></li>
+            </ul>
+        </div>
+    </div>
+	<div class="row">
 	    <div class="col-lg-8">
 			<article id="post-108" class="post-108 post type-post status-publish format-standard hentry category-blog tag-blog tag-general tag-post">
-		        <div class="post-image">
-			        <div class="post-heading">
-				        <h3><a href="http://bootstraptaste.com/wp/moderna/cu-eos-sale-sanctus-eligendi/">{{ post.tltle }}</a></h3>
-			        </div>
-				    <img width="800" height="450" src="http://bootstraptaste.com/wp/moderna/wp-content/uploads/2014/04/img3.jpg" class="img-responsive wp-post-image" alt="img3" />				
-                </div>
 {% autoescape off %}
 {{ post.content }}
-{% endautoescape %}			    
+{% endautoescape %}
 	        </article>
 {% load duoshuo_tags %}
 {% duoshuo_comments %}
-        </div>	
+        </div>
 	</div>
 </div>
 </section>
+
+{% load zhier_tags %}
+{% zhier_footer %}
+
 {% endblock %}
+
+
