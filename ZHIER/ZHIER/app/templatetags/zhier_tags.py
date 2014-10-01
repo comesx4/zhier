@@ -17,7 +17,7 @@ def zhier_footer(parser, token):
     last3Posts = Post.objects.all().order_by("-publish_time")[0:3]
     lasPostCode = ''
     for item in last3Posts:
-        lasPostCode += "<li><a href=%s>%s.html</a></li>" % (item.link, item.title)
+        lasPostCode += "<li><a href=%s.html>%s</a></li>" % (item.link, item.title)
     code = u'''
 <footer>
     <div class="container">
