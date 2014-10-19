@@ -26,13 +26,10 @@ def zhier_footer(parser, token):
                 <div class="widget">
                     <h5 class="widgetheading">Get in touch with Me</h5>
                     <address>
-                    <strong></strong>
-                    <br>
-                     Modernbuilding suite V124, AB 01<br>
+
                      Someplace 16425 Earth </address>
                     <p>
-                        <i class="fa fa-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
-                        <i class="fa fa-envelope-alt"></i> email@domainname.com
+                        <i class="fa fa-envelope"></i> comesx4(at)163.com
                     </p>
                 </div>
             </div>
@@ -41,10 +38,6 @@ def zhier_footer(parser, token):
                     <h5 class="widgetheading">Pages</h5>
                     <ul class="link-list">
                         <li><a href="#">Press release</a></li>
-                        <li><a href="#">Terms and conditions</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                        <li><a href="#">Career center</a></li>
-                        <li><a href="#">Contact us</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,16 +66,17 @@ def zhier_footer(parser, token):
                     <div class="copyright">
                         <p>
                             <span>&copy; <a href="/about">Zhier</a> 2014 All right reserved. </span>
+                            <span class="fa fa-map-marker" id="location"></span >
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <ul class="social-network">
-                        <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+                        <li style="visibility:hidden"><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li style="visibility:hidden"><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li style="visibility:hidden"><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li style="visibility:hidden"><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li style="visibility:hidden"><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
                 </div>
             </div>

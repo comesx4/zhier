@@ -10,7 +10,6 @@
 {% load staticfiles %}
 <link href="{% static 'app/css/bootstrap.min.css' %}" rel="stylesheet" />
 <link href="{% static 'app/css/fancybox/jquery.fancybox.css' %}" rel="stylesheet">
-<link href="{% static 'app/css/jcarousel.css' %}" rel="stylesheet" />
 <link href="{% static 'app/css/flexslider.css' %}" rel="stylesheet" />
 <link href="{% static 'app/css/friendly.css' %}" rel="stylesheet" />
 <link href="{% static 'app/css/style.css' %}" rel="stylesheet" />
@@ -60,7 +59,13 @@
     <!-- end header -->
 {% block breadcrumb %}{% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+
+{% endblock %}
+
+{% load zhier_tags %}
+{% zhier_footer %}
+
 
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
@@ -81,6 +86,14 @@
 <script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0c26de30d64391ec36d37ecc3caeeb42' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getJSON("http://api.17mon.cn/ip/search?token=cc87f3c77747bccbaaee35006da1ebb65e0bad57&ip=112.112.1.1", function(data){
+            $('#location').html(data.data);
+          });
+
+    });
 </script>
 
 </body>
