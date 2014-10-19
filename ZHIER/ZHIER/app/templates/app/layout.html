@@ -72,12 +72,23 @@
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{% static 'app/js/jquery.js' %}"></script>
-<script src="{% static 'app/js/jquery.easing.1.3.js' %}"></script>
-<script src="{% static 'app/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'app/js/jquery.fancybox.pack.js' %}"></script>
-<script src="{% static 'app/js/jquery.fancybox-media.js' %}"></script>
-<script src="{% static 'app/js/google-code-prettify/prettify.js' %}"></script>
+<!-- <script src="{% static 'app/js/jquery.js' %}"></script> -->
+<script src="http://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- <script src="{% static 'app/js/jquery.easing.1.3.js' %}"></script> -->
+<script src="http://cdn.staticfile.org/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- <script src="{% static 'app/js/bootstrap.min.js' %}"></script> -->
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.1.0/css/bootstrap.min.css"></script>
+
+<!-- <script src="{% static 'app/js/jquery.fancybox.pack.js' %}"></script> -->
+<script src="http://cdn.staticfile.org/fancybox/2.1.4/jquery.fancybox.pack.min.js"></script>
+
+<!-- <script src="{% static 'app/js/jquery.fancybox-media.js' %}"></script> -->
+<script src="http://cdn.staticfile.org/fancybox/2.1.4/helpers/jquery.fancybox-media.min.js"></script>
+
+<!-- <script src="{% static 'app/js/google-code-prettify/prettify.js' %}"></script> -->
+
 <script src="{% static 'app/js/portfolio/jquery.quicksand.js' %}"></script>
 <script src="{% static 'app/js/portfolio/setting.js' %}"></script>
 <script src="{% static 'app/js/jquery.flexslider.js' %}"></script>
@@ -87,14 +98,5 @@
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0c26de30d64391ec36d37ecc3caeeb42' type='text/javascript'%3E%3C/script%3E"));
 </script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $.getJSON("http://api.17mon.cn/ip/search?token=cc87f3c77747bccbaaee35006da1ebb65e0bad57&ip=112.112.1.1", function(data){
-            $('#location').html(data.data);
-          });
-
-    });
-</script>
-
 </body>
 </html>
