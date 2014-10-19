@@ -28,7 +28,7 @@
                 <li><i class="fa fa-calendar"></i><a href="#">{{ post.publish_time }}</a></li>
                 <li><i class="fa fa-user"></i><a href="#">{{ post.author }}</a></li>
                 <li><i class="fa fa-folder-open"></i><a href="/posts?cate={{ post.category.id }}">{{ post.category }}</a></li>
-                <li><i class="fa fa-comments"></i><a href="#">{{ post.access_count }} Comments</a></li>
+                <li><i class="fa fa-comments"></i><a href="#comments">{{ post.access_count }} Comments</a></li>
             </ul>
         </div>
     </div>
@@ -39,8 +39,10 @@
 {{ post.content }}
 {% endautoescape %}
 	        </article>
+            <div id="comments">
 {% load duoshuo_tags %}
 {% duoshuo_comments %}
+            </div>
         </div>
 	</div>
 </div>
